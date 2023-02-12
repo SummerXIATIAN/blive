@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import time
 import requests
+import os
 import json
 import configparser
 
@@ -64,8 +65,15 @@ def main(args):
 
 if __name__ == '__main__':
     df = pd.read_csv("data/streamer_info.csv")
+
+    ## select streamers that are not in the fans folder
+    name_list = [f.split('_fans.csv')[0] for f in os.listdir('data/fans')]
+    print(len(name_list))
+    df = df[~df.uname.isin(name_list)]
+    
     args = list(zip(df.mid, df.uname))
     # args = args[300:308]
+    print(args)
     print(f"Total {len(args)} streamers")
 
     start_time = time.time()
