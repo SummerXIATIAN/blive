@@ -1,0 +1,134 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=graph-force&code=LYTwwgFghgTgLgOgM4QPYHcAyqoBMCWAdgOYAUAlANwBQA9LQAQAkCxApnKQEoDyPAKgH0ACgEF-ACQYBqBgHJauKHCi0oSJB0XLVAGzZIAtMHyaYUAEb6kCAFZJUhOQBoGAMwCuhAMZx8jhlJicwAHCHIGAG9qFnZOOQg4OBCkAC56EPU4NgsiBG9UYFpzdFo4AFZ0AFEAOTAAN1EXdy9ff0JA4KgwiOiGBlBIWEQIfFw2bDwiMipqfq6whEJUcZs3VBgqqG8IUk8fPwDSZfHeuf6GE7YEXUs2XQYAXijzi4YUDFTLleukEGALKhdABlfAALzYAD4GOVXgwAL40frw2b9VAhQ4dZ59C5-OD6L44t7ZAAecC-cgAQvhdPhcrSGMC4DA2FBgGwYAwwIVgF58HAQAwACIcNhtRwuOH9JAeCyk8nyEVuKAeXRwBi3ECoDxwSVvfpwdEUwFJQp6_X6NwKuQwfDERJyOHw5xww1AvwhQnOuH6diEXBfADaUpe-ou9He9zF2VwAFkfhSkNN9Oaw0oVF8FhB8so2MQNvgDAhgN09q1MYEoGcw28WXAPDAOlAlmy2EiayiQ_C4QBdF1vMyFtIMYNhon6witik1H4MGqt1P6gUhNgUrOLt6a7XW9YwbxsDcXdNQTOhbNXJD9mu0wgAa2HWZuRHvV7D3lz-dtBlP3Wz7-yn5Dq--owDgwBfMyHhsMBm53LohIhm8ISoEmmIUo6NYIjBFz8mwwBMiABKhphJH9ICMDjDA3K6BsFIAMRuIxh6kW85GUQA6mMcAQF8ACM2EsRcKB4BglK6A2fEAAwCYJ7zQLgGDUbR8gwMQFhQKQ0kMFpOkIAAzOQGEdjJu77ghpEsiEqpJo4XzlNJiEXF09T8iAXySQgvGOd6mE3mwBFEeOb5AspcgOA2-7MRc3gNvUbCEAYw4eZJ3kyXhYTqKY5kkesMXDnIeC2Ns8XeCAUX9H5AWrsRpHoFxPEMLxsKkd2mGtfq7X9D25yIucgzQPAyAcDwGLtKQ6KYrMKKUEAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, 'dark', {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    var ROOT_PATH = 'https://echarts.apache.org/examples';
+    var option;
+
+    myChart.showLoading();
+
+    
+$.get('./data/test/mydata_92.json', function (graph) { 
+  myChart.hideLoading();
+  graph.nodes.forEach(function (node) {
+    node.label = {
+      show: node.symbolSize > 30.5
+    };
+  });
+  graph.links.forEach(function (link) {
+    link.label = {
+      show: link.weight > 0.6,
+    };
+  });
+  option = {
+    title: {
+      text: 'Bilibili Streamer Community Detection',
+      subtext: 'Default layout',
+      top: 'bottom',
+      left: 'right'
+    },
+    tooltip: {},
+    legend: [
+      {
+        // selectedMode: 'single',
+        data: graph.categories.map(function (a) {
+          return a.name;
+        })
+      }
+    ],
+    series: [
+      {
+        name: 'Node Name',
+        type: 'graph',
+        layout: 'force',
+        data: graph.nodes,
+        links: graph.links,
+        // categories: "A",
+        categories: graph.categories,
+        roam: true,
+        label: {
+          position: ''
+        },
+        edgeLabel: {
+            show: true,
+            color: '#000',
+            fontSize: 10,
+            formatter: function (params) {
+                return params.data.weight;
+            }
+        },
+        draggable: true,
+        itemStyle: {
+                    borderColor: '#fff',
+                    borderWidth: 1,
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.3)'
+        },
+        force: {
+          // edgeLength: 30,
+          repulsion: 50,
+          gravity: 0.1,
+          layoutAnimation: true,
+          // friction: 0.5
+        },
+        lineStyle: {
+          color: 'source',
+          width: 1,
+          opacity: 0.5,
+          curveness: 0.0
+        },
+        emphasis: {
+          focus: 'adjacency',
+          lineStyle: {
+            width: 12
+          },
+        }
+      }
+    ]
+  };
+  myChart.setOption(option);
+});
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

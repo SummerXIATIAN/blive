@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        /* 样式调整 */
+        #sliderContainer {
+            padding: 0 20px; /* 左右空出20px空间 */
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        #sliderLabel {
+            display: block; 
+            margin-bottom: 5px; 
+        }
+
+        #slider {
+            width: 70%; 
+            height: 8px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            -webkit-appearance: none;
+            transition: opacity .2s;
+        }
+
+        #slider:hover {
+            opacity: .8;
+        }
+
+        #slider::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4CAF50; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            -webkit-appearance: none;
+            transition: background .3s;
+        }
+
+        #slider:hover::-webkit-slider-thumb {
+            background: #45a049;
+        }
+
+        #slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4CAF50; 
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background .3s;
+        }
+
+        #slider:hover::-moz-range-thumb {
+            background: #45a049;
+        }
+
+        #sliderOutput {
+            background-color: grey; /* 灰色背景 */
+            color: white; /* 白色文本 */
+            padding: 3px 6px; /* 文本周围的填充 */
+            border-radius: 5px; /* 轻微的圆角 */
+            font-size: 20px; /* 文本大小 */
+            font-weight: bold; /* 加粗字体 */
+            margin-left: 5px; /* 左侧间距 */
+        }
+
+        .slider-marks {
+            display: flex;
+            position: relative;  /* 设置为相对定位，以便于子元素可以使用绝对定位 */
+            width: 70%;
+            padding: 5px 0;
+        }
+
+        .mark {
+            position: absolute;  /* 使用绝对定位来准确地放置每个刻度 */
+            bottom: 0;  /* 把刻度放在容器的底部 */
+            font-size: 10px;
+            color: #666;
+            transform: translateX(-50%);  /* 使刻度的中心对齐于其左边距的位置 */
+        }
+
+        .mark:first-child {
+            text-align: left;
+        }
+
+        .mark:last-child {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body style="height: 100%; margin: 0">
+
+<div id="sliderContainer">
+    <!-- 滑动条标签 -->
+    <label id="sliderLabel" for="slider">当前聚类粒度：<output id="sliderOutput"></output></label>
+
+    <!-- 滑动条 -->
+    <input type="range" id="slider">
+    <div id="sliderMarks" class="slider-marks"></div>  <!-- 添加的刻度标记容器 -->
+</div>
+<div id="container" style="height: 90%"></div>
+
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+<script type="text/javascript">
+
+    function loadData(value) {
+        myChart.showLoading();
+        $.get('./data/test/mydata_' + value + '.json', function(graph) {
+        myChart.hideLoading();
+        
+        // 对数据进行处理
+        graph.nodes.forEach(function (node) {
+          node.label = {
+            show: node.symbolSize > 10.5
+          };
+        });
+        graph.links.forEach(function (link) {
+          link.label = {
+            show: link.weight > 0.5
+          };
+        });
+        
+        option = {
+            title: {
+            text: 'Bilibili Streamer Community Detection',
+            subtext: 'Default layout',
+            top: 'bottom',
+            left: 'right'
+            },
+            tooltip: {},
+            legend: [
+            {
+                // selectedMode: 'single',
+                data: graph.categories.map(function (a) {
+                return a.name;
+                })
+            }
+            ],
+            series: [
+            {
+                name: 'Node Name',
+                type: 'graph',
+                layout: 'force',
+                data: graph.nodes,
+                links: graph.links,
+                // categories: "A",
+                categories: graph.categories,
+                roam: true,
+                label: {
+                position: ''
+                },
+                edgeLabel: {
+                    show: true,
+                    color: '#000',
+                    fontSize: 10,
+                    formatter: function (params) {
+                        return params.data.weight;
+                    }
+                },
+                draggable: true,
+                itemStyle: {
+                            borderColor: '#fff',
+                            borderWidth: 1,
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.3)'
+                },
+                force: {
+                // edgeLength: 30,
+                repulsion: 50,
+                gravity: 0.1,
+                layoutAnimation: true,
+                // friction: 0.5
+                },
+                lineStyle: {
+                color: 'source',
+                width: 1,
+                opacity: 0.5,
+                curveness: 0.0
+                },
+                emphasis: {
+                focus: 'adjacency',
+                lineStyle: {
+                    width: 12
+                },
+                }
+            }
+            ]
+        };
+        
+        // 设置新的配置
+        myChart.setOption(option);
+      });
+    }
+
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom);
+    var option;
+
+    $(document).ready(function() {
+        $.get('./data/test/dataFileList.json', function(data) {
+            dataFiles = data;
+
+            // 验证数组是否有内容
+            if (dataFiles.length === 0) return;
+
+            // var defaultDataIndex = dataFiles.length - 2;  // 默认倒数第二个
+            var defaultDataIndex = 1;  // 设置默认索引为第1个
+            var slider = document.getElementById('slider');
+            slider.min = 0;
+            slider.max = dataFiles.length - 1;
+            slider.value = defaultDataIndex;
+
+            var output = document.getElementById('sliderOutput');
+            output.value = dataFiles[defaultDataIndex];
+
+            loadData(dataFiles[defaultDataIndex]);
+
+            slider.addEventListener('input', function(event) {
+                var index = parseInt(event.target.value);
+                var value = dataFiles[index];
+                output.value = value;
+                loadData(value);
+            });
+
+            // 动态生成滑动条下方的刻度标记
+            var marksContainer = document.getElementById('sliderMarks');
+            var sliderWidth = marksContainer.offsetWidth;  // 获取滑动条的宽度
+            var stepWidth = sliderWidth / (dataFiles.length - 1);  // 计算每一步的宽度
+
+            for (var i = 0; i < dataFiles.length; i++) {
+                var mark = document.createElement('div');
+                mark.className = 'mark';
+                mark.innerText = dataFiles[i];
+                mark.style.left = (stepWidth * i) + 'px';  // 根据当前的步数计算左边距
+                marksContainer.appendChild(mark);
+            }
+
+        }).fail(function() {
+            console.error("Failed to load dataFileList.json");
+        });
+    });
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
