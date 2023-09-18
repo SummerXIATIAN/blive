@@ -2,4 +2,5 @@ data/fans/*.csv
 data/result/*.csv
 data/plot/*.png
 .ipynb_checkpoints
-config.ini
+./config.ini
+.DS_Store

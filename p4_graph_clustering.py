@@ -200,7 +200,7 @@ if __name__ == '__main__':
     print(data)
 
     ## 上传筛选后的数据到数据库
-    upload_result_toMysql(data, config['mysql_server'], today, flag=False)
+    upload_result_toMysql(data, config['mysql_server'], today, flag=True)
 
     ####### Step 2: 生成网络并聚类 #######
 
@@ -243,7 +243,7 @@ if __name__ == '__main__':
         }
 
     ## 上传聚类结果到数据库
-    upload_clusterJson_toMysql(my_dict, config['mysql_server'], today, flag=False)
+    upload_clusterJson_toMysql(my_dict, config['mysql_server'], today, flag=True)
 
     ####### Step 3: 生成可视化数据 #######
     
