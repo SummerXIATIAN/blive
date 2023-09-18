@@ -16,7 +16,7 @@ profile_num = int(config['clustering']['profile_num'])
 threshold_follower = int(config['clustering']['threshold_follower'])
 threshold_count = int(config['clustering']['threshold_count'])
 threshold_percentage = float(config['clustering']['threshold_percentage'])
-threshold_percentage_reverse = float(config['clustering']['threshold_percentage_reverse']) # 这个没用到暂时，hard-code
+threshold_percentage_reverse = float(config['clustering']['threshold_percentage_reverse']) # 这个暂时没用到，hard-code
 
 def data_processing(df):
     df = df.sort_values('percentage',ascending=False)
