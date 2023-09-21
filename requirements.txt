@@ -1,0 +1,8 @@
+pandas
+requests
+numpy
+leidenalg
+igraph
+sqlalchemy
+tqdm
+matplotlib
