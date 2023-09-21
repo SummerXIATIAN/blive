@@ -841,13 +841,6 @@
             "symbolSize": 11.2
         },
         {
-            "id": "207",
-            "name": "Fulgur_Official",
-            "value": 1545,
-            "category": 0,
-            "symbolSize": 11.2
-        },
-        {
             "id": "201",
             "name": "五月织姬ctsu",
             "value": 1530,
@@ -862,13 +855,6 @@
             "symbolSize": 11.13
         },
         {
-            "id": "145",
-            "name": "韩小沐",
-            "value": 1498,
-            "category": 0,
-            "symbolSize": 11.09
-        },
-        {
             "id": "112",
             "name": "瑞娅_Rhea",
             "value": 1492,
@@ -881,13 +867,6 @@
             "value": 1483,
             "category": 0,
             "symbolSize": 11.06
-        },
-        {
-            "id": "187",
-            "name": "虚拟小萨",
-            "value": 1473,
-            "category": 0,
-            "symbolSize": 11.04
         },
         {
             "id": "132",
@@ -916,13 +895,6 @@
             "value": 1430,
             "category": 0,
             "symbolSize": 10.94
-        },
-        {
-            "id": "147",
-            "name": "杜铂雷Dobre",
-            "value": 1421,
-            "category": 0,
-            "symbolSize": 10.92
         },
         {
             "id": "119",
@@ -1002,25 +974,11 @@
             "symbolSize": 10.64
         },
         {
-            "id": "32",
-            "name": "尤格Yog",
-            "value": 1286,
-            "category": 0,
-            "symbolSize": 10.63
-        },
-        {
             "id": "110",
             "name": "路希维德Wiede",
             "value": 1280,
             "category": 0,
             "symbolSize": 10.61
-        },
-        {
-            "id": "26",
-            "name": "舒三妈Susam",
-            "value": 1267,
-            "category": 0,
-            "symbolSize": 10.59
         },
         {
             "id": "100",
@@ -1049,13 +1007,6 @@
             "value": 1237,
             "category": 0,
             "symbolSize": 10.52
-        },
-        {
-            "id": "151",
-            "name": "MizunoAki",
-            "value": 1206,
-            "category": 0,
-            "symbolSize": 10.45
         },
         {
             "id": "146",
@@ -1184,13 +1135,6 @@
             "symbolSize": 10.06
         },
         {
-            "id": "77",
-            "name": "Afaer-展麟Finn",
-            "value": 1027,
-            "category": 0,
-            "symbolSize": 10.06
-        },
-        {
             "id": "180",
             "name": "氿氿ayumiko",
             "value": 1023,
@@ -1198,25 +1142,11 @@
             "symbolSize": 10.05
         },
         {
-            "id": "144",
-            "name": "★⑥檤轮囬★",
-            "value": 1020,
-            "category": 0,
-            "symbolSize": 10.04
-        },
-        {
             "id": "152",
             "name": "扶桑大红花丶",
             "value": 1020,
             "category": 0,
             "symbolSize": 10.04
-        },
-        {
-            "id": "76",
-            "name": "Afaer-吕和今Asota",
-            "value": 1015,
-            "category": 0,
-            "symbolSize": 10.03
         },
         {
             "id": "150",
@@ -1289,11 +1219,39 @@
             "symbolSize": 20.84
         },
         {
+            "id": "115",
+            "name": "菠萝赛东°",
+            "value": 5850,
+            "category": 1,
+            "symbolSize": 20.64
+        },
+        {
+            "id": "206",
+            "name": "小深深儿",
+            "value": 2644,
+            "category": 1,
+            "symbolSize": 13.61
+        },
+        {
+            "id": "218",
+            "name": "一只小仙若",
+            "value": 1890,
+            "category": 1,
+            "symbolSize": 11.95
+        },
+        {
             "id": "114",
             "name": "LexBurner",
             "value": 1590,
             "category": 1,
             "symbolSize": 11.29
+        },
+        {
+            "id": "145",
+            "name": "韩小沐",
+            "value": 1498,
+            "category": 1,
+            "symbolSize": 11.09
         },
         {
             "id": "193",
@@ -1308,6 +1266,34 @@
             "value": 1428,
             "category": 1,
             "symbolSize": 10.94
+        },
+        {
+            "id": "221",
+            "name": "余多多Dudu",
+            "value": 1261,
+            "category": 1,
+            "symbolSize": 10.57
+        },
+        {
+            "id": "222",
+            "name": "纳豆nado",
+            "value": 1156,
+            "category": 1,
+            "symbolSize": 10.34
+        },
+        {
+            "id": "144",
+            "name": "★⑥檤轮囬★",
+            "value": 1020,
+            "category": 1,
+            "symbolSize": 10.04
+        },
+        {
+            "id": "205",
+            "name": "王筱沫沫丶",
+            "value": 1000,
+            "category": 1,
+            "symbolSize": 10.0
         },
         {
             "id": "99",
@@ -1415,46 +1401,60 @@
             "symbolSize": 10.6
         },
         {
-            "id": "115",
-            "name": "菠萝赛东°",
-            "value": 5850,
+            "id": "207",
+            "name": "Fulgur_Official",
+            "value": 1545,
             "category": 4,
-            "symbolSize": 20.64
+            "symbolSize": 11.2
         },
         {
-            "id": "206",
-            "name": "小深深儿",
-            "value": 2644,
+            "id": "187",
+            "name": "虚拟小萨",
+            "value": 1473,
             "category": 4,
-            "symbolSize": 13.61
+            "symbolSize": 11.04
         },
         {
-            "id": "218",
-            "name": "一只小仙若",
-            "value": 1890,
+            "id": "147",
+            "name": "杜铂雷Dobre",
+            "value": 1421,
             "category": 4,
-            "symbolSize": 11.95
+            "symbolSize": 10.92
         },
         {
-            "id": "221",
-            "name": "余多多Dudu",
-            "value": 1261,
+            "id": "32",
+            "name": "尤格Yog",
+            "value": 1286,
             "category": 4,
-            "symbolSize": 10.57
+            "symbolSize": 10.63
         },
         {
-            "id": "222",
-            "name": "纳豆nado",
-            "value": 1156,
+            "id": "26",
+            "name": "舒三妈Susam",
+            "value": 1267,
             "category": 4,
-            "symbolSize": 10.34
+            "symbolSize": 10.59
         },
         {
-            "id": "205",
-            "name": "王筱沫沫丶",
-            "value": 1000,
+            "id": "151",
+            "name": "MizunoAki",
+            "value": 1206,
             "category": 4,
-            "symbolSize": 10.0
+            "symbolSize": 10.45
+        },
+        {
+            "id": "77",
+            "name": "Afaer-展麟Finn",
+            "value": 1027,
+            "category": 4,
+            "symbolSize": 10.06
+        },
+        {
+            "id": "76",
+            "name": "Afaer-吕和今Asota",
+            "value": 1015,
+            "category": 4,
+            "symbolSize": 10.03
         },
         {
             "id": "62",

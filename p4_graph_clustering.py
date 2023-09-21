@@ -142,10 +142,16 @@ def upload_result_toMysql(df, cfg, datestamp, flag=False):
     flag: True for upload, False for download
     '''
     if flag:
-        engine = sqlalchemy.create_engine(f"mysql+pymysql://{cfg['User']}:{cfg['Password']}@{cfg['Host']}:{cfg['Port']}/{cfg['Database']}")
-        # write dataframe to mysql
-        df.to_sql(f'result_{datestamp}', engine, if_exists='replace', index=False)
-        print(f"Write to mysql successfully! {len(df)} records")
+        try:
+            engine = sqlalchemy.create_engine(f"mysql+pymysql://{cfg['User']}:{cfg['Password']}@{cfg['Host']}:{cfg['Port']}/{cfg['Database']}")
+            # write dataframe to mysql
+            df.to_sql(f'result_{datestamp}', engine, if_exists='replace', index=False)
+            print(f"Write to mysql successfully! {len(df)} records")
+        except Exception as e:
+            print(f"Error on upload result to Mysql: {e}")
+        finally:
+            engine.dispose()
+            print("Close connection.")
         return 1
     else:
         # data = pd.read_sql('result', engine)
@@ -155,28 +161,35 @@ def upload_result_toMysql(df, cfg, datestamp, flag=False):
     
 def upload_clusterJson_toMysql(my_dict, cfg, datestamp, flag=False):
     if flag:
-        mydb = mysql.connector.connect(
-            host = cfg['Host'],       # 数据库主机地址
-            user = cfg['User'],    # 数据库用户名
-            passwd = cfg['Password'],   # 数据库密码
-            database = cfg['Database'],
-            auth_plugin = 'mysql_native_password'
-        )
-        mycursor = mydb.cursor()
+        try:
+            mydb = mysql.connector.connect(
+                host = cfg['Host'],       # 数据库主机地址
+                user = cfg['User'],    # 数据库用户名
+                passwd = cfg['Password'],   # 数据库密码
+                database = cfg['Database'],
+                auth_plugin = 'mysql_native_password'
+            )
+            mycursor = mydb.cursor()
 
-        # create a table that support json format data in database, then insert dict into the table
-        # table with auto-increment index
-        mycursor.execute(f"CREATE TABLE IF NOT EXISTS group_{datestamp} (id INT AUTO_INCREMENT PRIMARY KEY, jsondoc JSON)")
+            # create a table that support json format data in database, then insert dict into the table
+            # table with auto-increment index
+            mycursor.execute(f"CREATE TABLE IF NOT EXISTS group_{datestamp} (id INT AUTO_INCREMENT PRIMARY KEY, jsondoc JSON)")
 
-        cnt = 0
-        for i in my_dict.items():
-            sql = "INSERT INTO group_{} (jsondoc) VALUES (%s)".format(datestamp)
-            val = (json.dumps(i[1]),)
-            mycursor.execute(sql, val)
-            mydb.commit()
-            cnt += 1
-        
-        print(f"Total {len(my_dict.items())} partition conditions, {cnt} records inserted.")
+            cnt = 0
+            for i in my_dict.items():
+                sql = "INSERT INTO group_{} (jsondoc) VALUES (%s)".format(datestamp)
+                val = (json.dumps(i[1]),)
+                mycursor.execute(sql, val)
+                mydb.commit()
+                cnt += 1
+            
+            print(f"Total {len(my_dict.items())} partition conditions, {cnt} records inserted.")
+        except Exception as e:
+            print(f"Error on upload clusterJson to Mysql: {e}")
+        finally:
+            mycursor.close()
+            mydb.close()
+            print("Close connection.")
         return 1
     else:
         ## read data from database

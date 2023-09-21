@@ -3,4 +3,4 @@ data/result/*.csv
 data/plot/*.png
 *.ini
 **/.DS_Store
-visualization/data/*/mydata_*.csv
+visualization/data/2023*

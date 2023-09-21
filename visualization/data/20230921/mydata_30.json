@@ -428,13 +428,6 @@
             "symbolSize": 13.01
         },
         {
-            "id": "158",
-            "name": "月隐空夜",
-            "value": 2310,
-            "category": 0,
-            "symbolSize": 12.87
-        },
-        {
             "id": "21",
             "name": "宣小纸不怕火",
             "value": 2217,
@@ -1184,116 +1177,116 @@
             "symbolSize": 10.28
         },
         {
-            "id": "109",
-            "name": "棉花大哥哥",
-            "value": 14670,
-            "category": 4,
-            "symbolSize": 39.99
-        },
-        {
-            "id": "202",
-            "name": "企鹅带带北极熊",
-            "value": 11286,
-            "category": 4,
-            "symbolSize": 32.56
-        },
-        {
-            "id": "58",
-            "name": "shourei小N",
-            "value": 6561,
-            "category": 4,
-            "symbolSize": 22.2
-        },
-        {
-            "id": "108",
-            "name": "大祥哥来了",
-            "value": 6240,
-            "category": 4,
-            "symbolSize": 21.49
-        },
-        {
-            "id": "169",
-            "name": "卡特亚",
-            "value": 5790,
-            "category": 4,
-            "symbolSize": 20.51
-        },
-        {
-            "id": "52",
-            "name": "宴宁ccccc",
-            "value": 5532,
-            "category": 4,
-            "symbolSize": 19.94
-        },
-        {
-            "id": "192",
-            "name": "自由魂儿儿儿",
-            "value": 3101,
-            "category": 4,
-            "symbolSize": 14.61
-        },
-        {
-            "id": "179",
-            "name": "小紫才没有摸鱼",
-            "value": 1127,
-            "category": 4,
-            "symbolSize": 10.28
-        },
-        {
             "id": "171",
             "name": "凉哈皮",
             "value": 17453,
-            "category": 5,
+            "category": 4,
             "symbolSize": 46.09
         },
         {
             "id": "186",
             "name": "老骚豆腐",
             "value": 12390,
-            "category": 5,
+            "category": 4,
             "symbolSize": 34.99
         },
         {
             "id": "194",
             "name": "OldBa1",
             "value": 8190,
-            "category": 5,
+            "category": 4,
             "symbolSize": 25.77
         },
         {
             "id": "200",
             "name": "老师好我叫飞莎儿",
             "value": 2618,
-            "category": 5,
+            "category": 4,
             "symbolSize": 13.55
         },
         {
             "id": "165",
             "name": "sh7adow",
             "value": 2550,
-            "category": 5,
+            "category": 4,
             "symbolSize": 13.4
         },
         {
             "id": "170",
             "name": "花辞鸢树serein",
             "value": 1620,
-            "category": 5,
+            "category": 4,
             "symbolSize": 11.36
         },
         {
             "id": "185",
             "name": "猫不吃芒果め",
             "value": 1335,
-            "category": 5,
+            "category": 4,
             "symbolSize": 10.73
         },
         {
             "id": "164",
             "name": "阿策策策策策呀",
             "value": 1274,
-            "category": 5,
+            "category": 4,
             "symbolSize": 10.6
+        },
+        {
+            "id": "109",
+            "name": "棉花大哥哥",
+            "value": 14670,
+            "category": 5,
+            "symbolSize": 39.99
+        },
+        {
+            "id": "202",
+            "name": "企鹅带带北极熊",
+            "value": 11286,
+            "category": 5,
+            "symbolSize": 32.56
+        },
+        {
+            "id": "58",
+            "name": "shourei小N",
+            "value": 6561,
+            "category": 5,
+            "symbolSize": 22.2
+        },
+        {
+            "id": "108",
+            "name": "大祥哥来了",
+            "value": 6240,
+            "category": 5,
+            "symbolSize": 21.49
+        },
+        {
+            "id": "169",
+            "name": "卡特亚",
+            "value": 5790,
+            "category": 5,
+            "symbolSize": 20.51
+        },
+        {
+            "id": "52",
+            "name": "宴宁ccccc",
+            "value": 5532,
+            "category": 5,
+            "symbolSize": 19.94
+        },
+        {
+            "id": "192",
+            "name": "自由魂儿儿儿",
+            "value": 3101,
+            "category": 5,
+            "symbolSize": 14.61
+        },
+        {
+            "id": "179",
+            "name": "小紫才没有摸鱼",
+            "value": 1127,
+            "category": 5,
+            "symbolSize": 10.28
         },
         {
             "id": "115",
@@ -1345,151 +1338,158 @@
             "symbolSize": 10.0
         },
         {
-            "id": "197",
-            "name": "烛灵儿Hikari",
-            "value": 8971,
-            "category": 7,
-            "symbolSize": 27.49
-        },
-        {
-            "id": "196",
-            "name": "织月黛黛",
-            "value": 3014,
-            "category": 7,
-            "symbolSize": 14.42
-        },
-        {
-            "id": "201",
-            "name": "五月织姬ctsu",
-            "value": 1530,
-            "category": 7,
-            "symbolSize": 11.16
-        },
-        {
-            "id": "198",
-            "name": "希丝奈cisne",
-            "value": 1420,
-            "category": 7,
-            "symbolSize": 10.92
-        },
-        {
-            "id": "214",
-            "name": "梅妻ume",
-            "value": 1141,
-            "category": 7,
-            "symbolSize": 10.31
-        },
-        {
-            "id": "62",
-            "name": "赵俊日",
-            "value": 6465,
-            "category": 8,
-            "symbolSize": 21.99
-        },
-        {
-            "id": "126",
-            "name": "解说Mage",
-            "value": 6015,
-            "category": 8,
-            "symbolSize": 21.0
-        },
-        {
-            "id": "107",
-            "name": "Langx919",
-            "value": 4726,
-            "category": 8,
-            "symbolSize": 18.17
-        },
-        {
-            "id": "45",
-            "name": "LGDPYL116",
-            "value": 4491,
-            "category": 8,
-            "symbolSize": 17.66
-        },
-        {
-            "id": "44",
-            "name": "超级乘风儿",
-            "value": 2105,
-            "category": 8,
-            "symbolSize": 12.42
-        },
-        {
-            "id": "215",
-            "name": "夜莲Annbbers",
-            "value": 1886,
-            "category": 9,
-            "symbolSize": 11.94
-        },
-        {
-            "id": "230",
-            "name": "BLG_whzy",
-            "value": 1855,
-            "category": 9,
-            "symbolSize": 11.88
-        },
-        {
-            "id": "19",
-            "name": "老实憨厚的子衿",
-            "value": 1395,
-            "category": 9,
-            "symbolSize": 10.87
-        },
-        {
-            "id": "99",
-            "name": "飞天狙想要努力变胖",
-            "value": 12361,
-            "category": 10,
-            "symbolSize": 34.92
-        },
-        {
-            "id": "98",
-            "name": "甜药Jamren",
-            "value": 8621,
-            "category": 10,
-            "symbolSize": 26.72
-        },
-        {
-            "id": "217",
-            "name": "库库_sama",
-            "value": 6861,
-            "category": 10,
-            "symbolSize": 22.86
-        },
-        {
-            "id": "216",
-            "name": "许琪i",
-            "value": 2113,
-            "category": 10,
-            "symbolSize": 12.44
-        },
-        {
             "id": "162",
             "name": "泛式",
             "value": 12120,
-            "category": 11,
+            "category": 7,
             "symbolSize": 34.39
         },
         {
             "id": "124",
             "name": "瓶子君152",
             "value": 10890,
-            "category": 11,
+            "category": 7,
             "symbolSize": 31.7
         },
         {
             "id": "167",
             "name": "依然小智",
             "value": 2430,
-            "category": 11,
+            "category": 7,
             "symbolSize": 13.14
+        },
+        {
+            "id": "158",
+            "name": "月隐空夜",
+            "value": 2310,
+            "category": 7,
+            "symbolSize": 12.87
         },
         {
             "id": "180",
             "name": "氿氿ayumiko",
             "value": 1023,
-            "category": 11,
+            "category": 7,
             "symbolSize": 10.05
+        },
+        {
+            "id": "197",
+            "name": "烛灵儿Hikari",
+            "value": 8971,
+            "category": 8,
+            "symbolSize": 27.49
+        },
+        {
+            "id": "196",
+            "name": "织月黛黛",
+            "value": 3014,
+            "category": 8,
+            "symbolSize": 14.42
+        },
+        {
+            "id": "201",
+            "name": "五月织姬ctsu",
+            "value": 1530,
+            "category": 8,
+            "symbolSize": 11.16
+        },
+        {
+            "id": "198",
+            "name": "希丝奈cisne",
+            "value": 1420,
+            "category": 8,
+            "symbolSize": 10.92
+        },
+        {
+            "id": "214",
+            "name": "梅妻ume",
+            "value": 1141,
+            "category": 8,
+            "symbolSize": 10.31
+        },
+        {
+            "id": "62",
+            "name": "赵俊日",
+            "value": 6465,
+            "category": 9,
+            "symbolSize": 21.99
+        },
+        {
+            "id": "126",
+            "name": "解说Mage",
+            "value": 6015,
+            "category": 9,
+            "symbolSize": 21.0
+        },
+        {
+            "id": "107",
+            "name": "Langx919",
+            "value": 4726,
+            "category": 9,
+            "symbolSize": 18.17
+        },
+        {
+            "id": "45",
+            "name": "LGDPYL116",
+            "value": 4491,
+            "category": 9,
+            "symbolSize": 17.66
+        },
+        {
+            "id": "44",
+            "name": "超级乘风儿",
+            "value": 2105,
+            "category": 9,
+            "symbolSize": 12.42
+        },
+        {
+            "id": "215",
+            "name": "夜莲Annbbers",
+            "value": 1886,
+            "category": 10,
+            "symbolSize": 11.94
+        },
+        {
+            "id": "230",
+            "name": "BLG_whzy",
+            "value": 1855,
+            "category": 10,
+            "symbolSize": 11.88
+        },
+        {
+            "id": "19",
+            "name": "老实憨厚的子衿",
+            "value": 1395,
+            "category": 10,
+            "symbolSize": 10.87
+        },
+        {
+            "id": "99",
+            "name": "飞天狙想要努力变胖",
+            "value": 12361,
+            "category": 11,
+            "symbolSize": 34.92
+        },
+        {
+            "id": "98",
+            "name": "甜药Jamren",
+            "value": 8621,
+            "category": 11,
+            "symbolSize": 26.72
+        },
+        {
+            "id": "217",
+            "name": "库库_sama",
+            "value": 6861,
+            "category": 11,
+            "symbolSize": 22.86
+        },
+        {
+            "id": "216",
+            "name": "许琪i",
+            "value": 2113,
+            "category": 11,
+            "symbolSize": 12.44
         },
         {
             "id": "159",
