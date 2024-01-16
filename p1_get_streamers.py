@@ -47,7 +47,9 @@ def get_topStreamer(gid,page=1,page_size=100,max_page=3):
 
     payload = {}
     headers = {
-      'Cookie': 'LIVE_BUVID=AUTO1616700756065396'
+        "Content-Type": "application/json; charset=utf-8",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+        "Cookie": 'LIVE_BUVID=AUTO2716990584154319'
     }
     url = f"https://api.live.bilibili.com/xlive/app-ucenter/v1/guard/Honor?target_id=0&gid={gid}&area_id=0&page={page}&page_size={page_size}"
     

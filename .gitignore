@@ -1,6 +1,7 @@
 data/fans/*.csv
 data/result/*.csv
 data/plot/*.png
+data/result*.csv
 *.ini
 **/.DS_Store
 visualization/data/2023*

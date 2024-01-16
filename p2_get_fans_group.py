@@ -21,7 +21,9 @@ def get_fans(ruid,page=1,page_size=100):
     return: pandas dataframe'''
     payload={}
     headers = {
-      'Cookie': 'LIVE_BUVID=AUTO1616700756065396'
+        "Content-Type": "application/json; charset=utf-8",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+        "Cookie": 'LIVE_BUVID=AUTO2716990584154319'
     }
     url = f"https://api.live.bilibili.com/xlive/general-interface/v1/rank/getFansMembersRank?ruid={ruid}&page={page}&page_size={page_size}"
     
