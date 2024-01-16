@@ -5,3 +5,4 @@ data/result*.csv
 *.ini
 **/.DS_Store
 visualization/data/2023*
+visualization/data/2024*
