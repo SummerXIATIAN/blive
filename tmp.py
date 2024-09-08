@@ -12,3 +12,24 @@ headers = {
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
+
+
+# [streamer]
+# mini_guardNum = 20
+# mini_guardNum_vtb = 20
+# mini_guardNum_top = 20
+# mini_follower_vtb = 10000
+# max_page_top100 = 3
+
+# [fans_group]
+# WORKERS_NUM = 8
+
+# [cal_common]
+# fans_type = fans
+
+# [clustering]
+# threshold_follower = 400
+# threshold_count = 20
+# threshold_percentage = 0.04
+# threshold_percentage_reverse = 0.04
+# profile_num = 20
