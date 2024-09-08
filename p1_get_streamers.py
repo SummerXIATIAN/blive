@@ -6,8 +6,9 @@ import configparser
 
 config = configparser.ConfigParser()
 config.read('config.ini')
+OUTPUT_DIR = "./data/"
 
-mini_guardNum = int(config['streamer']['mini_guardNum'])
+mini_guardNum = int(config['streamer'] ['mini_guardNum'])
 mini_guardNum_vtb = int(config['streamer']['mini_guardNum_vtb'])
 mini_guardNum_top = int(config['streamer']['mini_guardNum_top'])
 mini_follower_vtb = int(config['streamer']['mini_follower_vtb'])
@@ -33,7 +34,7 @@ def get_vtuber():
     return df
 
 ## Get Top Streamers from Bilibili
-def get_topStreamer(gid,page=1,page_size=100,max_page=3):
+def get_topStreamer(gid, page=1, page_size=100, max_page=3):
     '''Request data from bili航海名人堂,
         - gid: type of scale
             -  241: 10000+
@@ -80,36 +81,52 @@ def get_topStreamer(gid,page=1,page_size=100,max_page=3):
     df_t = pd.DataFrame.from_dict(result)
     return df_t
 
-
-## Get Vtuber List
-df_v = get_vtuber()
-
 ## Vtuber Selection
-df_v['coefficent'] = 63.4*np.log(df_v['follower']) + df_v['guardNum'] - 790
-df_v = df_v[(df_v['guardNum']>mini_guardNum_vtb) & (df_v['follower']>mini_follower_vtb)]
-df_vtb = df_v[df_v['coefficent'] > 0].sort_values(by='guardNum',ascending=False)
+# 有一个写死的公式，可能需要调整
+def vtb_selection(df_v, mini_guardNum_vtb, mini_follower_vtb):
+    '''Select vtubers with guardNum > mini_guardNum_vtb and follower > mini_follower_vtb'''
+    df_v['coefficent'] = 63.4 * np.log(df_v['follower']) + df_v['guardNum'] - 790
+    df_v = df_v[(df_v['guardNum'] > mini_guardNum_vtb) & (df_v['follower'] > mini_follower_vtb)]
+    df_vtb = df_v[df_v['coefficent'] > 0].sort_values(by='guardNum', ascending=False)
+    return df_vtb
 
-## Get Top Streamers
-top10000 = get_topStreamer(gid=241)
-top1000 = get_topStreamer(gid=75)
-top100 = get_topStreamer(gid=76,max_page=max_page_top100)
-
-## Top Streamers Selection
-pdList = [top10000, top1000, top100]  # List of dataframes
-df_top = pd.concat(pdList)
-df_top = df_top[df_top['name'] != '账号已注销']
-df_top = df_top[df_top['guard_num'] > mini_guardNum_top]
-df_top = df_top[['name', 'uid', 'room_id', 'guard_num', 'gid']]
-df_top.columns = ['uname', 'mid', 'roomid', 'guardNum', 'gid']
-df_top = df_top.astype({"mid": str, "roomid": str})
+## Top Streamer Selection
+def top_selection(top10000, top1000, top100, mini_guardNum_top):
+    '''Select top streamers with guard_num > mini_guardNum_top'''
+    pdList = [top10000, top1000, top100]  # List of dataframes
+    df_top = pd.concat(pdList)
+    df_top = df_top[df_top['name'] != '账号已注销']
+    df_top = df_top[df_top['guard_num'] > mini_guardNum_top]
+    df_top = df_top[['name', 'uid', 'room_id', 'guard_num', 'gid']]
+    df_top.columns = ['uname', 'mid', 'roomid', 'guardNum', 'gid']
+    df_top = df_top.astype({"mid": str, "roomid": str})
+    return df_top
 
 ## Merge top streamers and vtubers
-df_all = pd.concat([df_vtb, df_top])
-df_all = df_all.drop_duplicates(subset=['mid'])
-df_all = df_all.sort_values(by='guardNum',ascending=False)
-df_all
+def merge_streamers(df_vtb, df_top, save_path):
+    df_all = pd.concat([df_vtb, df_top])
+    df_all = df_all.drop_duplicates(subset=['mid'])
+    df_all = df_all.sort_values(by='guardNum',ascending=False)
+    if save_path:
+        df_all.to_csv(save_path, index=False)
+    return df_all
 
-## Save data
-df_result = df_all[df_all['guardNum']>mini_guardNum]
-df_result.to_csv('data/streamer_info.csv',index=False)
-print(f"Total Streamers: {len(df_result)}")
+def get_streamers():
+    ## Get Vtuber List
+    df_v = get_vtuber()
+
+    ## Get Top Streamers
+    top10000 = get_topStreamer(gid=241)
+    top1000 = get_topStreamer(gid=75)
+    top100 = get_topStreamer(gid=76, max_page=max_page_top100)
+
+    df_vtb = vtb_selection(df_v, mini_guardNum_vtb, mini_follower_vtb)
+    df_top = top_selection(top10000, top1000, top100, mini_guardNum_top)
+    df_all = merge_streamers(df_vtb, df_top, OUTPUT_DIR + 'streamer_info.csv')
+    print(f"Total Streamers: {len(df_all)}")
+
+    return df_all
+
+if __name__ == '__main__':
+    print("Start part 1: Collecting streamers...")
+    get_streamers()

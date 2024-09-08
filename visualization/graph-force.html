@@ -110,13 +110,13 @@
 
     function loadData(value) {
         myChart.showLoading();
-        $.get('./data/test/mydata_' + value + '.json', function(graph) {
+        $.get('./data/mytest/mydata_' + value + '.json', function(graph) {
         myChart.hideLoading();
         
         // 对数据进行处理
         graph.nodes.forEach(function (node) {
           node.label = {
-            show: node.symbolSize > 10.5
+            show: node.symbolSize > 10.55
           };
         });
         graph.links.forEach(function (link) {
@@ -202,7 +202,7 @@
     var option;
 
     $(document).ready(function() {
-        $.get('./data/20231224/dataFileList.json', function(data) {
+        $.get('./data/mytest/dataFileList.json', function(data) {
             dataFiles = data;
 
             // 验证数组是否有内容

@@ -2,7 +2,11 @@ data/fans/*.csv
 data/result/*.csv
 data/plot/*.png
 data/result*.csv
+data/archive/result*.csv
 *.ini
 **/.DS_Store
 visualization/data/2023*
+visualization/data/mytest
 visualization/data/2024*
+*_tmp.*
+tmp.*

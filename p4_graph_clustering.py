@@ -34,18 +34,18 @@ def data_processing(df):
     df['followers_dst'] = df['dst'].map(dict_followers)
     df['percentage_reverse'] = df.apply(lambda x: round(x['count'] / dict_followers[x['dst']],3), axis=1)
 
-    ## Rename columns
+    ## Rename columns 
     df = df[['src', 'dst', 'count', 'type', 'followers', 'percentage', 'percentage_reverse', 'mid_x', 'mid_y','followers_dst']]
     return df
 
-def data_selection(df, threshold=[2000,20,0.05]):
+def data_selection(df, threshold=[2000,20,0.04]):
     '''function to select data based on threshold
     threshold = [followers, count, percentage]
     '''
     data = df[(df['followers'] >= threshold[0]) & (df['followers_dst'] >= threshold[0])]
     data = data[(data['count'] >= threshold[1])]
     data = data[(data['percentage'] >= threshold[2])]
-    data = data[(data['percentage'] >= 0.08) | (data['percentage_reverse'] >= 0.05)]
+    # data = data[(data['percentage'] >= 0.04) | (data['percentage_reverse'] >= 0.04)]
     # data = data[(data['percentage']>0.05) & (data['percentage_inv']>0.05)]
     # data = data[(data['percentage']>0.05) | (data['percentage_inv']>0.05)]
     # data = data[['src','dst','count','percentage']]
@@ -305,9 +305,9 @@ if __name__ == '__main__':
 
             ### Only select closest 40 edges with weight >= 0.15
             myrow = df_row[df_row['weight']>= 0.15].head(40)
-            if myrow.shape[0] < 1:
+            if myrow.shape[0] < 5:
                 ### For nodes weight less than 0.15 edges, select closest 10 edges with weight >= 0.05
-                myrow = df_row[df_row['weight']>= 0.025].head(10)
+                myrow = df_row[df_row['weight']>= 0.02].head(10)
             select_edges.append(myrow)
         
         ## Create final dataframe for selected edges
